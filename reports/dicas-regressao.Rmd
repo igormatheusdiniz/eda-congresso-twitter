@@ -84,3 +84,29 @@ ggplot(data = atividade, aes(x = 10**n_proprio_log)) +
   geom_line(data = para_plotar_modelo, aes(y = 10**pred), color = "orange", size = 1.5)
 ```
 
+---------------------------------------------------------------------------------
+
+# 1. Qual a relação entre as características da atuação do parlamentar e o engajamento total que ele obtém no twitter? 
+
+```{r}
+atividade %>% 
+  ggplot(aes(x = n_proprio, y = seguidores)) + 
+  geom_point()
+
+atividade %>% 
+  ggplot(aes(x = n_proprio, y = seguidores)) + 
+  geom_point() + 
+  scale_y_log10() + 
+  scale_x_log10()
+
+atividade %>% 
+  ggplot(aes(x = n_retweet, y = seguidores)) + 
+  geom_point() + 
+  scale_y_log10() + 
+  scale_x_log10()
+```
+
+
+
+# 2. Qual a relação entre as características da atuação do parlamentar e o engajamento mediano que ele obtém no twitter? 
+
