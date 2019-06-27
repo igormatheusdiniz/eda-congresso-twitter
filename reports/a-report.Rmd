@@ -18,6 +18,11 @@ atividade = read_projectdata()
 atividade = atividade %>% 
   filter(seguidores > 0, n_proprio > 0, n_retweet > 0)
 
+atividade = atividade  %>% 
+  filter(!is.na(twitter) & !is.na(segue)) %>% 
+  mutate(tuitou = !is.na(twitter) & (n_proprio + n_retweet > 0))
+
+atividade = atividade %>% filter(!is.na(twitter))
 ```
 
 # 1. Qual a relação entre as características da atuação do parlamentar e o engajamento total que ele obtém no twitter? 
@@ -231,7 +236,7 @@ atividade = atividade %>%
 
 
 ```{r}
-modelo = lm(engaj_mediano_log ~ seguidores_log + segue_log + n_proprio_log + n_retweet_log + casa, 
+modelo = lm(10**engaj_mediano_log ~ seguidores_log + segue_log + n_proprio_log + n_retweet_log + casa, 
    data = atividade)
 
 tidy(modelo)
