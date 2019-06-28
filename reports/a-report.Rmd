@@ -1,8 +1,11 @@
 ---
-title: "REPLACE ME"
+title: "Estudo das relações das caractéristicas de um Parlamentar no Twitter"
+author: "Igor Matheus Castor Diniz Pinheiro"
 output:
     html_document:
-    df_print: paged
+      df_print: paged
+      code_folding: hide
+      toc_paged: TRUE
 theme: sandstone
 ---
 
@@ -250,4 +253,3 @@ glance(modelo)
 ## Conclusão
 
 Regressão linear múltipla foi utilizada para analisar a associação entre número de seguidores, número de usuários que o parlamentar segue, número de twets próprios, número de retweets, casa e Engajamento Mediano do parlamentar. Os resultados da regressão indicam que um modelo no formato log(Engaj_Mediano) = 0,74.log(seguidores) - 0,34.log(segue) - 0,15.log(n_tweets_proprio) + 0,28.log(n_retweets) - 0,1.casa, explicando 57,28% da variância da variável de resposta (R2 = 0,5728). Podemos perceber que quantidade de seguidores é o principal fator relacionados com o engajamento total, com o coeficiente chegando próximo a 1 quando considerado os intervalos de confiança. 
-
